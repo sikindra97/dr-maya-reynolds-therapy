@@ -3,25 +3,98 @@
 @tailwind utilities;
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --cream: #f7f3ed;
+  --warm-white: #fcfaf6;
+  --sand: #e7ded1;
+  --sage: #9aaa9b;
+  --deep: #29443d;
+  --deep-hover: #203832;
+  --brown: #756557;
+  --text: #40504b;
+  --white: #ffffff;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 body {
-  color: var(--foreground);
-  background: var(--background);
+  margin: 0;
+  background: var(--cream);
+  color: var(--text);
   font-family: Arial, Helvetica, sans-serif;
+  -webkit-font-smoothing: antialiased;
 }
 
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
+a {
+  text-decoration: none;
+}
+
+button,
+a {
+  -webkit-tap-highlight-color: transparent;
+}
+
+::selection {
+  background: #c5d1c6;
+  color: #203832;
+}
+
+.container-custom {
+  width: min(1180px, calc(100% - 40px));
+  margin: 0 auto;
+}
+
+.section-padding {
+  padding: 100px 0;
+}
+
+.eyebrow {
+  color: var(--sage);
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+.serif {
+  font-family: Georgia, "Times New Roman", serif;
+}
+
+/* Smooth image interaction */
+img {
+  display: block;
+}
+
+/* Better focus for keyboard users */
+a:focus-visible,
+button:focus-visible {
+  outline: 2px solid var(--sage);
+  outline-offset: 4px;
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  .section-padding {
+    padding: 70px 0;
+  }
+
+  .container-custom {
+    width: min(100% - 28px, 1180px);
+  }
+}
+
+/* Small phones */
+@media (max-width: 480px) {
+  .section-padding {
+    padding: 60px 0;
+  }
+
+  .container-custom {
+    width: calc(100% - 24px);
   }
 }
